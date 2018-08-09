@@ -56,7 +56,7 @@ type fstTermsIter struct {
 	currentValue uint64
 }
 
-var _ sgmt.OrderedBytesSliceIterator = &fstTermsIter{}
+var _ sgmt.OrderedBytesIterator = &fstTermsIter{}
 
 func (f *fstTermsIter) Next() bool {
 	if f.done || f.err != nil {

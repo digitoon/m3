@@ -54,8 +54,8 @@ type Segment interface {
 	Close() error
 }
 
-// OrderedBytesSliceIterator iterates over a set of bytes slices in lexicographical order.
-type OrderedBytesSliceIterator interface {
+// OrderedBytesIterator iterates over a collection of []byte(s) in lexicographical order.
+type OrderedBytesIterator interface {
 	// Next returns a bool indicating if there are any more elements.
 	Next() bool
 
@@ -70,17 +70,18 @@ type OrderedBytesSliceIterator interface {
 	Close() error
 
 	// Len returns the total number of elements the iterator contained at the start of iteration.
+	// NB: this may return an estimate depending on the backing implementation.
 	Len() int
 }
 
 // FieldsIterator iterates over all known fields.
 type FieldsIterator interface {
-	OrderedBytesSliceIterator
+	OrderedBytesIterator
 }
 
 // TermsIterator iterates over all known terms for the provided field.
 type TermsIterator interface {
-	OrderedBytesSliceIterator
+	OrderedBytesIterator
 }
 
 // MutableSegment is a segment which can be updated.

@@ -479,7 +479,7 @@ func pprintIter(pl postings.List) string {
 	return buf.String()
 }
 
-func toSlice(t *testing.T, iter sgmt.OrderedBytesSliceIterator) [][]byte {
+func toSlice(t *testing.T, iter sgmt.OrderedBytesIterator) [][]byte {
 	elems := [][]byte{}
 	for iter.Next() {
 		curr := iter.Current()

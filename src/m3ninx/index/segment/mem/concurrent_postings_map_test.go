@@ -91,7 +91,7 @@ func TestConcurrentPostingsMapKeys(t *testing.T) {
 	require.Equal(t, [][]byte{bar, baz, foo}, sortKeys(keys))
 }
 
-func toSlice(t *testing.T, iter sgmt.OrderedBytesSliceIterator) [][]byte {
+func toSlice(t *testing.T, iter sgmt.OrderedBytesIterator) [][]byte {
 	elems := [][]byte{}
 	for iter.Next() {
 		elems = append(elems, iter.Current())
